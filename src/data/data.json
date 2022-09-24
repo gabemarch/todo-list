@@ -1,0 +1,19 @@
+{
+    "todoItems": [
+        {
+            "id": 0,
+            "title": "Cookies",
+            "isCompleted": false
+        },
+        {
+            "id": 1,
+            "title": "Chocolate",
+            "isCompleted": false
+        },
+        {
+            "id": 2,
+            "title": "Apple",
+            "isCompleted": true
+        }
+    ]
+}
