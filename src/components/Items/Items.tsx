@@ -2,10 +2,9 @@ import { useSelector } from "react-redux";
 import Item from "../Item/Item";
 
 const Items = () => {
-  const todos = useSelector((state: any) => {
-    return state && state.tasks;
-  });
+  const todos = useSelector((state: any) => state.tasks.entities);
 
+  console.log('TODOS', todos)
   return (
     <ul className="tasks-list">
       {todos.map((todo: any) => (

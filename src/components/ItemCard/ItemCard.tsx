@@ -18,11 +18,17 @@ const ItemCard = () => {
 
     dispatch(
       addTask({
-        task: value,
+        id: new Date(),
+        name: value,
+        completed: false
       })
     );
 
     setValue("");
+  };
+
+  const handleKeyDown = (e: any) => {
+    if (e.key === "Enter" || e.keyCode === 13) onSubmit(e);
   };
 
   return (
@@ -33,6 +39,7 @@ const ItemCard = () => {
         placeholder="Add task"
         value={value}
         onChange={(event) => setValue(event.target.value)}
+        onKeyPress={handleKeyDown}
       />
       <button className="task-button" onClick={onSubmit}>
         Save

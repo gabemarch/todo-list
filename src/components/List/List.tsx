@@ -3,10 +3,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import Items from "../Items/Items";
 
 const List = () => {
-  const todos = useSelector((state: any) => {
-    console.log(state)
-    return state && state.tasks;
-  });
+  const todos = useSelector((state: any) => state.tasks.entities);
 
   return (
     <div>

@@ -1,31 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  entities: [],
+  status: null,
+};
+
 export const tasksSlice = createSlice({
   name: "tasks",
-  initialState: [],
+  initialState,
   reducers: {
     addTask: (state, action) => {
-      const newTask= {
-        id: new Date(),
-        name: action.payload.task,
-        completed: true
-      };
-      state.push(newTask);
+      state.entities.push(action.payload);
     },
     deleteTask: (state, action) => {
-      return state.filter((item) => item.id !== action.payload.id);
+      return state.entities.filter((item) => item.id !== action.payload.id);
     },
     completeTask: (state, action) => {
-      return state.map((todo) => {
-        if (todo.id === action.payload) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-        return todo;
-      });
-    }
+      const todoId = action.payload;
+      const todo = state.entities[todoId];
+      console.log(" ENTITY", todo);
+      // todo.completed = !todo.completed;
+    },
   },
 });
 

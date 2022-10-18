@@ -1,0 +1,30 @@
+.task-item {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-title {
+        font-size: 1.3em;
+    }
+    
+    &-buttons {
+        padding: 0.5rem;
+        button { 
+            border: none;
+            outline: none;
+            padding: .5rem;
+            width: 80px;
+            color: white;
+            cursor: pointer;
+         }
+    }
+    .remove-task-button {
+        background-color: #ba0f2b;
+        margin-right: 0.3rem;
+    }
+    .complete-task-button {
+        background-color: #71ad92;
+        margin-left: 0.3rem;
+    }
+}

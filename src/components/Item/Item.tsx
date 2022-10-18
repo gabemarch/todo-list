@@ -1,6 +1,6 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteTask, completeTask } from "../../shared/redux/reducers/taskSlice";
+import './Item.scss';
 
 const Item = ({ id, title, completed }: any) => {
   const dispatch = useDispatch<any>();
@@ -14,13 +14,14 @@ const Item = ({ id, title, completed }: any) => {
   };
 
   const completeTodo = () => {
-    dispatch(completeTask({ id: id }));
+    console.log(id, title, completed)
+    dispatch(completeTask({ completed: true }));
   };
 
   return (
     <li className="task-item">
-      <div>{title}</div>
-      <div>
+      <div className="task-item-title">{title}</div>
+      <div className="task-item-buttons">
         <button
           className="remove-task-button"
           onClick={() => {
