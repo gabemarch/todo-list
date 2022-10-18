@@ -1,30 +1,25 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import ItemCard from "../ItemCard/ItemCard";
 import Items from "../Items/Items";
-import data from "../../data/data.json";
-import { Counter } from "../Counter";
 
 const List = () => {
-  const todoItems = data.todoItems;
-  const [isInputShown, setIsInputShown] = useState(false);
-  const handleAddNewButton = () => {
-    setIsInputShown(true);
-  };
+  const todos = useSelector((state: any) => {
+    console.log(state)
+    return state && state.tasks;
+  });
 
   return (
     <div>
-      <Counter />
       <h2>Grocery List</h2>
-      <button onClick={handleAddNewButton}>Add new</button>
-      <div>{isInputShown ? <ItemCard /> : null}</div>
+      <ItemCard />
       <Items />
       <div className="completed-section">
         <hr />
         <h2 className="completed-section-header">Completed</h2>
         <div>
-          {todoItems.map((item) => (
-            item.isCompleted === true ? <span>{item.title}</span> : null
-          ))}
+          {todos.map((item: any) =>
+            item.completed === true ? <span>{item.name}</span> : null
+          )}
         </div>
       </div>
     </div>

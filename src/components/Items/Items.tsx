@@ -1,15 +1,17 @@
-import data from "../../data/data.json";
-import './Items.scss';
+import { useSelector } from "react-redux";
+import Item from "../Item/Item";
 
 const Items = () => {
-  const items = data.todoItems;
-  console.log(items);
+  const todos = useSelector((state: any) => {
+    return state && state.tasks;
+  });
+
   return (
-    <div className="items">
-      {items.map((item) => (
-        <p className="items-title">{item.title}</p>
+    <ul className="tasks-list">
+      {todos.map((todo: any) => (
+        <Item id={todo.id} title={todo.name} completed={todo.completed} />
       ))}
-    </div>
+    </ul>
   );
 };
 
